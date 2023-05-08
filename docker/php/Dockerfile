@@ -15,4 +15,4 @@ ENV COMPOSER_HOME /composer
 ENV PATH $PATH:/composer/vendor/bin
 
 
-WORKDIR /var/www/workspace
+WORKDIR /var/www/workspace/SampleProject
