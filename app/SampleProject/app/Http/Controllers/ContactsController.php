@@ -18,7 +18,7 @@ class ContactsController extends Controller
         $request->validate([
         'name'  => 'required|max:10',
         'kana'  => 'required|max:10',
-        'tel  ' => 'nullable|numeric|max:11|',
+        'tel'   => 'nullable|numeric|max:11|',
         'email' => 'required|email',
         'body'  => 'required',
         ]);
