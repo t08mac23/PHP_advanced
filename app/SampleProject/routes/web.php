@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('casteria');
-});
+})->name('casteria');
 
-Route::get('/contact', function () {
-    return 'helloWorld';
-});
+//入力フォームページ
+Route::get('/contact', [ContactsController::class, 'index'])->name('contact');
+//確認フォームページ
+Route::post('/contact/confirm', [ContactsController::class, 'confirm'])->name('confirm');
+//送信完了ページ
+Route::post('/contact/complete', [ContactsController::class, 'complete'])->name('complete');

@@ -20,7 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('tel',11)->nullable()->comment('電話番号');
             $table->string('email',100)->nullable(false)->comment('メールアドレス');
             $table->text('body')->nullable()->comment('お問合せ内容');
-            $table->dateTime('created_at')->currentTimestamp()->comment('送信日時');
+            $table->timestamps();
         });
     }
 
