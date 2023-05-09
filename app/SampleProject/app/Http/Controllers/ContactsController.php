@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 
 class ContactsController extends Controller
 {
     //
     public function index() {
-        return view('contacts.index');
+        // return view('contacts.index');
+        //クエリビルダ
+        // $contacts = DB::table('contacts')
+        // ->select('name', 'kana', 'tel', 'email', 'body')->get();
+        // dd($contacts);
+        $contacts = Contact::all();
+        return view('contacts.index', compact('contacts'));
     }
 
     public function confirm(Request $request) {
@@ -25,7 +32,6 @@ class ContactsController extends Controller
 
         // フォームからの入力値を全て取得
         $inputs = $request->all();
-
         // 確認ページに表示
         // 入力値を引数に渡す
         return view('contacts.confirm', [

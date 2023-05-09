@@ -69,5 +69,24 @@
             {!! Form::close() !!}
         </div>
     </div>
+
+    <table class="table table-dark table-striped", style="margin-top: 100px;">
+      <tr>
+          <th >氏名</th>
+          <th >フリガナ</th>
+          <th >電話番号</th>
+          <th >メールアドレス</th>
+          <th >お問い合わせ内容</th>
+      </tr>
+      @foreach($contacts as $contact)
+        <tr>
+          <td>{{ $contact->name }}</td>
+          <td>{{ $contact->kana }}</td>
+          <td>{{ $contact->tel }}</td>
+          <td>{{ $contact->email }}</td>
+          <td>{!! nl2br(e($contact->body)) !!}</td>
+        </tr>
+      @endforeach
+    </table>
 </body>
 </html>
