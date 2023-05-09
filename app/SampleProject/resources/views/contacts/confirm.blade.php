@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <p class="col-sm-4 col-form-label">お問い合わせ内容</p>
                     <div class="col-sm-8">
-                        {{ $inputs['body'] }}
+                        {!! nl2br(e($inputs['body'])) !!}
                     </div>
                 </div>
                 <input type="hidden" name="body" value="{{ $inputs['body'] }}">
@@ -59,9 +59,6 @@
                     <button name="action" type="submit" value="submit" class="btn btn-primary">送信</button>
                 </div>
             {!! Form::close() !!}
-            <form class="text-center">
-                <button type="button" onclick="history.back()">戻る</button>
-            </form>
         </div>
     </div>
 </body>

@@ -16,11 +16,11 @@ class ContactsController extends Controller
         // バリデーションルールを定義
         // 引っかかるとエラーを起こしてくれる
         $request->validate([
-        'name'  => 'required|max:50',
-        'kana'  => 'required|max:50',
-        'tel  ' => 'nullable',
+        'name'  => 'required|max:10',
+        'kana'  => 'required|max:10',
+        'tel  ' => 'nullable|numeric|max:11|',
         'email' => 'required|email',
-        'body'  => 'nullable',
+        'body'  => 'required',
         ]);
 
         // フォームからの入力値を全て取得

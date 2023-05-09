@@ -20,7 +20,17 @@ Route::get('/', function () {
 
 //入力フォームページ
 Route::get('/contact', [ContactsController::class, 'index'])->name('contact');
+
 //確認フォームページ
 Route::post('/contact/confirm', [ContactsController::class, 'confirm'])->name('confirm');
+// ダイレクトアクセスの禁止
+Route::get('/contact/confirm', function () {
+    return redirect('/contact');
+});
+
 //送信完了ページ
 Route::post('/contact/complete', [ContactsController::class, 'complete'])->name('complete');
+// ダイレクトアクセスの禁止
+Route::get('/contact/complete', function () {
+    return redirect('/contact');
+});

@@ -39,6 +39,9 @@
                         {{ Form::text('tel', null, ['class' => 'form-control']) }}
                     </div>
                 </div>
+                @if ($errors->has('tel'))
+                  <p class="alert alert-danger">{{ $errors->first('tel') }}</p>
+                @endif
 
                 <div class="form-group row">
                     <p class="col-sm-4 col-form-label">メールアドレス<span class="badge badge-danger ml-1">必須</span></p>
@@ -51,11 +54,14 @@
                 @endif
 
                 <div class="form-group row">
-                    <p class="col-sm-4 col-form-label">お問い合わせ内容</p>
+                    <p class="col-sm-4 col-form-label">お問い合わせ内容<span class="badge badge-danger ml-1">必須</span></p>
                     <div class="col-sm-8">
                         {{ Form::textarea('body', null, ['class' => 'form-control']) }}
                     </div>
                 </div>
+                @if ($errors->has('body'))
+                  <p class="alert alert-danger">{{ $errors->first('body') }}</p>
+                @endif
 
                 <div class="text-center">
                     {{ Form::submit('確認画面へ', ['class' => 'btn btn-primary']) }}
