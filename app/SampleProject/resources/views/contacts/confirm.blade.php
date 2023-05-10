@@ -47,7 +47,7 @@
                 <input type="hidden" name="email" value="{{ $inputs['email'] }}">
 
                 <div class="form-group row">
-                    <p class="col-sm-4 col-form-label">お問い合わせ内容</p>
+                    <p class="col-sm-4 col-form-label">お問い合わせ内容<span class="badge badge-danger ml-1">必須</span></p>
                     <div class="col-sm-8">
                         {!! nl2br(e($inputs['body'])) !!}
                     </div>

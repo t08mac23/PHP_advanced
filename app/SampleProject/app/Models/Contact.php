@@ -19,6 +19,6 @@ class Contact extends Model
           'kana',
           'tel',
           'email',
-          'body',
+          'body'
       ];
 }

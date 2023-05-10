@@ -85,6 +85,11 @@
           <td>{{ $contact->tel }}</td>
           <td>{{ $contact->email }}</td>
           <td>{!! nl2br(e($contact->body)) !!}</td>
+          <td>
+            <form action="{{ route('edit', ['id' => $contact->id]) }}" method="get">
+              <button>編集</button>
+            </form>
+          </td>
         </tr>
       @endforeach
     </table>

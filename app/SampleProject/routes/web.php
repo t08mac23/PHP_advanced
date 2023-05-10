@@ -34,3 +34,8 @@ Route::post('/contact/complete', [ContactsController::class, 'complete'])->name(
 Route::get('/contact/complete', function () {
     return redirect('/contact');
 });
+
+// 編集ページ
+Route::get('/contact/edit/{id}', [ContactsController::class, 'edit'])->name('edit');
+// 更新
+Route::put('/contact/update/{id}', [ContactsController::class, 'update'])->name('update');
