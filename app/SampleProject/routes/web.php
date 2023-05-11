@@ -39,3 +39,6 @@ Route::get('/contact/complete', function () {
 Route::get('/contact/edit/{id}', [ContactsController::class, 'edit'])->name('edit');
 // 更新
 Route::put('/contact/update/{id}', [ContactsController::class, 'update'])->name('update');
+
+// 削除
+Route::delete('/contact/destroy/{id}', [ContactsController::class, 'destroy'])->name('destroy');

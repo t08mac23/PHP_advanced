@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>お問い合わせ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -88,6 +89,25 @@
           <td>
             <form action="{{ route('edit', ['id' => $contact->id]) }}" method="get">
               <button>編集</button>
+            </form>
+          </td>
+          <td>
+            <form action="{{ route('destroy', ['id' => $contact->id]) }}" method="post">
+              @csrf
+              @method('delete')
+              <button class="delete-btn">削除</button>
+              <!-- ポップアップ -->
+              <script>
+                $('.delete-btn').off('click');
+                $('.delete-btn').on('click', function () {
+                  if (confirm('本当に削除しますか？')) {
+                    return true;
+                  }else {
+                    alert("キャンセルがクリックされました。");
+                    return false;
+                  }
+                });
+              </script>
             </form>
           </td>
         </tr>

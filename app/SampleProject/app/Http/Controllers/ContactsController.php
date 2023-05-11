@@ -37,7 +37,6 @@ class ContactsController extends Controller
         $input  = $request->except('action');
 
         if ($action === 'submit') {
-
             // DBにデータを保存
             $contact = new Contact();
             $contact->fill($input);
@@ -67,7 +66,6 @@ class ContactsController extends Controller
             ]);
 
         if ($action === 'submit') {
-
             // DBにデータを保存
             $contact = Contact::find($id);
             $contact->fill($input);
@@ -80,4 +78,9 @@ class ContactsController extends Controller
 
     }
 
+    public function destroy($id) {
+        $contact = Contact::find($id);
+        $contact->delete();
+        return redirect()->route('contact');
+    }
 }
